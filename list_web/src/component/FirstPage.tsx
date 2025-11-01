@@ -6,25 +6,37 @@ const FirstPage = () => {
     const [links, setLinks] = useState<Record<string, Record<string, string>>>({})
 
     async function get_links() {
-        const response = await fetch(ENDPOINTS.get_links)
-        if (response.status != 200) {
-            alert("Ошибка при получении ссылок");
-            return;
+        try {
+            const response = await fetch(ENDPOINTS.get_links)
+            if (response.status != 200) {
+                alert("Ошибка при получении ссылок");
+                return;
+            }
+            const data = await response.json();
+            setLinks(data);
         }
-        const data = await response.json();
-        setLinks(data);
+        catch (err) {
+            console.log(`Error: ${err}`)
+            alert("Не удалось отправить запрос. Проверьте подключение к серверу.");
+        }
     }
 
     async function delete_links(link_id: string) {
-        const response = await fetch(ENDPOINTS.delete_link(link_id), {
-            method: 'DELETE',
-        })
-        if (response.status != 200) {
-            alert("Ошибка при удалении ссылки");
-            return;
+        try {
+            const response = await fetch(ENDPOINTS.delete_link(link_id), {
+                method: 'DELETE',
+            })
+            if (response.status != 200) {
+                alert("Ошибка при удалении ссылки");
+                return;
+            }
+            alert("Ссылка успешно удалена");
+            get_links();
         }
-        alert("Ссылка успешно удалена");
-        get_links();
+        catch (err) {
+            console.log(`Error: ${err}`)
+            alert("Не удалось отправить запрос. Проверьте подключение к серверу.");
+        }
     }
 
     useEffect(() => {

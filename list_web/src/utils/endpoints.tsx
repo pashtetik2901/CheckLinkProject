@@ -1,4 +1,4 @@
-const BASE_LINK = "http://localhost:8080"
+const BASE_LINK = "http://91.229.9.194:8080"
 
 const ENDPOINTS = {
     get_links: `${BASE_LINK}/get_links`,
