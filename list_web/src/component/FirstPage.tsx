@@ -32,7 +32,7 @@ const FirstPage = () => {
                 return;
             }
             alert("Ссылка успешно удалена");
-            get_links();
+            window.location.reload();
         }
         catch (err) {
             console.log(`Error: ${err}`)

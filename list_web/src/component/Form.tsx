@@ -40,6 +40,7 @@ const FormMain = () => {
             alert("Сайт успешно добавлен");
             setName("");
             setLink("");
+            window.location.reload();
         } catch (err) {
             console.error(err);
             alert(`Не удалось отправить запрос. Проверьте подключение к серверу. Ошибка: ${err}`);
