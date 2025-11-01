@@ -1,0 +1,9 @@
+services:
+  back_app:
+    build:
+      context: ./back_app
+      dockerfile: Dockerfile
+    container_name: back_app
+    ports:
+      - "8080:8080"
+    

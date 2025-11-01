@@ -1,0 +1,61 @@
+body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Контейнер со всеми элементами */
+.page_area {
+  display: flex;
+  flex-wrap: wrap;
+  /* 🔹 разрешаем перенос */
+  justify-content: center;
+  /* 🔹 центрируем */
+  align-items: flex-start;
+  gap: 24px;
+  /* 🔹 расстояние между карточками */
+  width: 100%;
+  max-width: 1300px;
+  box-sizing: border-box;
+  padding: 10px;
+  /* немного внутреннего отступа от краёв */
+}
+
+/* Каждый элемент */
+.page_area>* {
+  flex: 1 1 280px;
+  /* минимум 280px, растягивается по ширине */
+  max-width: 320px;
+  box-sizing: border-box;
+  background: #fff;
+  /* фон карточки */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* лёгкая тень */
+  overflow: hidden;
+  padding: 10px;
+  /* внутренние отступы */
+}
+
+/* адаптация под телефон */
+@media (max-width: 600px) {
+  .page_area {
+    gap: 16px;
+    /* чуть меньше отступов */
+  }
+
+  .page_area>* {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+}

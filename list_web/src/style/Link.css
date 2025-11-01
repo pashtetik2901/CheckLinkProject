@@ -1,0 +1,36 @@
+.element_link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.element_link button {
+    margin-top: 10px;
+    width: 70%;
+    background-color: rgb(87, 44, 44);
+    color: white;
+    font-weight: bold;
+}
+
+.prewiew_link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* ✅ адаптация под телефон */
+@media (max-width: 600px) {
+    .element_link {
+        gap: 8px;
+        width: 100%;
+    }
+
+    .element_link iframe {
+        width: 95%;
+        /* height: 250px; */
+    }
+}
