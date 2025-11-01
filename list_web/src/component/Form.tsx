@@ -6,7 +6,7 @@ const FormMain = () => {
     const [name, setName] = useState("");
     const [link, setLink] = useState("");
 
-    async function handleSubmit(e: React.FormEvent) {
+    async function handleSubmit() {
         // e.preventDefault();
 
         // 🔹 нормализуем ссылку перед отправкой
