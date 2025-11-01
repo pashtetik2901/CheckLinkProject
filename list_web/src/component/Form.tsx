@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import "../style/Form.css";
 import ENDPOINTS from "../utils/endpoints";
 
@@ -6,8 +6,8 @@ const FormMain = () => {
     const [name, setName] = useState("");
     const [link, setLink] = useState("");
 
-    async function handleSubmit() {
-        // e.preventDefault();
+    async function handleSubmit(e: FormEvent) {
+        e.preventDefault();
 
         // 🔹 нормализуем ссылку перед отправкой
         let normalizedLink = link.trim();

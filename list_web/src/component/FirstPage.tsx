@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import ENDPOINTS from "../utils/endpoints";
 import "../style/Link.css";
 
@@ -21,7 +21,8 @@ const FirstPage = () => {
         }
     }
 
-    async function delete_links(link_id: string) {
+    async function delete_links(e: FormEvent, link_id: string) {
+        e.preventDefault();
         try {
             const response = await fetch(ENDPOINTS.delete_link(link_id), {
                 method: 'DELETE',
@@ -47,7 +48,7 @@ const FirstPage = () => {
     return (
         <div className="page_area">
             {Object.keys(links).map((key) => (
-                <form className="element_link" onSubmit={() => { delete_links(key) }} key={key}>
+                <form className="element_link" onSubmit={(e) => { delete_links(e, key) }} key={key}>
                     <div className="prewiew_link">
                         <h4>{links[key].name}</h4>
                         <a href={links[key].link}>Открыть</a>
