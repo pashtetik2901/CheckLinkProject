@@ -7,3 +7,11 @@ services:
     ports:
       - "8080:8080"
     
+  frontend:
+    container_name: front
+    build:
+      context: ./list_web
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: always
