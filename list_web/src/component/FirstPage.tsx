@@ -47,7 +47,7 @@ const FirstPage = () => {
     return (
         <div className="page_area">
             {Object.keys(links).map((key) => (
-                <form className="element_link" onSubmit={() => { delete_links(key) }}>
+                <form className="element_link" onSubmit={() => { delete_links(key) }} key={key}>
                     <div className="prewiew_link">
                         <h4>{links[key].name}</h4>
                         <a href={links[key].link}>Открыть</a>
